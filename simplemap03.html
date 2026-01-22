@@ -72,16 +72,6 @@
             '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P29-v2_0.html">国土数値情報-学校データ</a>'
         );
 
-        // ===== 大阪府 学校 GeoJSON =====
-        fetch('./P29-21_27.geojson')
-            .then(res => res.json())
-            .then(json => {
-                const schoolLayer = L.geoJSON(json)
-                    .bindPopup(layer => layer.feature.properties.P29_004)
-                    .addTo(map);
-
-                LayerControl.addOverlay(schoolLayer, "学校（大阪府）");
-            });
 
         // ===== 全国 学校 クラスタ =====
         fetch('./P29-21.geojson')
